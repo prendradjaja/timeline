@@ -8,6 +8,7 @@ function fetchAndDisplay() {
   fetch('/api/historical_events')
     .then(result => result.json())
     .then(data => display(data))
+    .catch(() => displayFetchError());
 }
 
 function display(events) {
@@ -21,7 +22,7 @@ function display(events) {
   eventsElement.innerHTML = html;
 }
 
-function displayError() {
+function displayFetchError() {
   const eventsElement = document.getElementById('events');
-  eventsElement.innerHTML = '<li>Error fetching events</li>';
+  eventsElement.innerHTML = '<li>Error fetching or displaying events</li>';
 }
