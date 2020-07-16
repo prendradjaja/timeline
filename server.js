@@ -16,7 +16,11 @@ const databasePool = new pg.Pool({
 
 app.get('/api/historical_events', async (req, res) => {
   try {
-    const result = await databasePool.query('SELECT year, title FROM historical_event');
+    const result = await databasePool.query(`
+      SELECT year, title
+      FROM historical_event
+      ORDER BY year ASC
+    `);
     res.send(JSON.stringify(result.rows));
   } catch (err) {
     console.error(err);
