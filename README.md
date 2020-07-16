@@ -1,5 +1,7 @@
 # Timeline
 
+<img src="./screenshot.png">
+
 ## Local development
 
 Prerequisites: NPM, Postgres
