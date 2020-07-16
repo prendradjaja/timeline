@@ -24,10 +24,10 @@ app.get('/api/historical_events', async (req, res) => {
   }
 });
 
-app.post('/api/historical_events', async (req, res) => {
+app.put('/api/historical_events', async (req, res) => {
   try {
     await databasePool.query(
-      'INSERT INTO book (year, title) VALUES ($1, $2)',
+      'INSERT INTO historical_event (year, title) VALUES ($1, $2)',
       [req.body.year, req.body.title]
     );
     // We don't need to send anything, (the frontend doesn't consume anything here) but an empty
